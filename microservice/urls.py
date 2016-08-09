@@ -14,11 +14,10 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url,include  #include is required to include urls of our app
-from django.contrib import admin
-from microservice import urls
+from django.conf.urls import url
+from . import views
 
 urlpatterns = [
-    url(r'^', include(urls)), ##Include URLs of our app microservice
-    url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index , name="index"),
 ]
+
