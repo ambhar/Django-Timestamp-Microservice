@@ -1,17 +1,79 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>{{ title }}</title>
-    </head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>{{ title }}</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+        body {
+          padding-top: 5rem;
+        }
+        .starter-template {
+          padding: 3rem 1.5rem;
+          text-align: center;
+        }
+    </style>
+  </head>
     <body>
-        <h1>{{ title }}</h1>
-         <h2>{{ date }}</h2>
-        <h2>{{ date | date:"U" }}</h2>
+        <div class="container">
+          <div class="starter-template">
+            <h1>Timestamp Microservice</h1>
+            <p class="lead">Pass date as a parameter in URL or enter date in following search box.<br> We will show you Unix timestamp if you enter a date or vice versa.</p>
+          </div>
+          <div class="col-md-6 col-md-offset-3">
+            <label for="inputlg">Enter date or Unix timestamp: <i>Use format 2015-05-23 for 23 May, 2015</i></label>
+            <form action="" method="post">
+              {% csrf_token %}
+              <div class="input-group">
+                
+                {{form.check_date}}
+                <span class="input-group-btn">
+                  <button class="btn btn-primary btn-lg" type="submit">Check Date</button>
+                </span>
+              </div>
+              
+            </form>
+          </div>
+          {% if date %}
+          <div class="col-md-6 col-md-offset-3">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="success">
+                  <td>{{ date | date:"U" }}</td>
+                  <td>{{ date | date:"d M, Y"}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {% endif %}
+        </div><!-- /.container -->
         <!--
         <form action="#" method="get">
             <input type="text" name="date"/>
             <input type="button" name="check" value="Check date"/>
         </form>
         -->
+        
+         <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     </body>
 </html>
