@@ -13,10 +13,7 @@ Here are the specific details about this project:
 ## Live Demo
 'https://camp-microservice-timestamp-ambhar.c9users.io/'
 
+## Django Deployment Instructions
 
-    
-## Configuration
-
-You can configure your Python version and `PYTHONPATH` used in
-Cloud9 > Preferences > Project Settings > Language Support.
+http://matthewstibbard.com/how-to-deploy-a-django-project-in-cloud9-to-heroku/
 
