@@ -16,7 +16,6 @@ def index(request,string):
         context ={
             'title':string,
         }
-        print("ghh")
     else:
         context = {
                 'title':string, # pass context to HTML page i.e passing title here
@@ -28,16 +27,14 @@ def index(request,string):
     
 def dateInput(request):
     template = loader.get_template("index.html")
-    #subject = ""
     if request.method == 'POST':
         form = DateForm(request.POST)
         context={'form': form}
         if form.is_valid():
             inputDate = form.cleaned_data['check_date']
-            print(inputDate)
             return HttpResponse(loader.get_template("index.html").render({'date':inputDate,'form':form},request))
         else:
-            return HttpResponse(template.render(context,request)) #HttpResponseRedirect(request.META.get('HTTP_REFERER')) For same URL redirect
+            return HttpResponse(template.render(context,request)) # HttpResponseRedirect(request.META.get('HTTP_REFERER')) For same URL redirect
     else:
         form = DateForm()
         context={'form': form}
