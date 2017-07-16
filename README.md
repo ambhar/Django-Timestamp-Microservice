@@ -10,9 +10,6 @@ Here are the specific details about this project:
 3) If it does not contain a date or Unix timestamp, it returns null for those properties.
 
 
-## Live Demo
-'https://camp-microservice-timestamp-ambhar.c9users.io/'
-
 ## Django Deployment Instructions
 
 http://matthewstibbard.com/how-to-deploy-a-django-project-in-cloud9-to-heroku/
